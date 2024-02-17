@@ -1,13 +1,24 @@
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import {LogBox, StyleSheet} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {SplashScreen} from './src/screens';
+LogBox.ignoreAllLogs();
 
 const App = () => {
   return (
-    <View>
-      <SafeAreaView />
-      <Text>Boombit Test</Text>
-    </View>
+    <GestureHandlerRootView style={styles.container}>
+      <NavigationContainer>
+        <SplashScreen />
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default App;
