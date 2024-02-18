@@ -22,7 +22,6 @@ export const Input = ({control, name, ...rest}: InputProps) => {
   const {errors} = formState;
   const isInvalid = errors[field.name]?.message;
   const errorMessage = errors[field.name]?.message;
-  console.log({isInvalid});
   return (
     <View style={styles.containerInput}>
       <TextInput

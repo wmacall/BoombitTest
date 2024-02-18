@@ -39,7 +39,10 @@ export const LoginScreen = () => {
         <Text style={styles.heading}>Sign In</Text>
         <Input placeholder="Email Address" name="email" control={control} />
         <Input placeholder="Enter Password" name="password" control={control} />
-        <TouchableOpacity onPress={handleSubmit(onLogin)} style={styles.button}>
+        <TouchableOpacity
+          testID="ls_button"
+          onPress={handleSubmit(onLogin)}
+          style={styles.button}>
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
       </View>
