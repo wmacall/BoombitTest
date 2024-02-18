@@ -10,6 +10,9 @@ export interface IconProps {
 const IconNames = {
   AboutIcon: Icons.AboutIcon,
   HomeIcon: Icons.HomeIcon,
+  MasterCardIcon: Icons.MasterCardIcon,
+  VisaCardIcon: Icons.VisaCardIcon,
+  AmexCardIcon: Icons.AmexCardIcon,
 };
 
 export const Icon = ({name}: IconProps) => {
