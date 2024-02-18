@@ -1,10 +1,15 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import {Header} from '../../../components';
 
-export const AboutScreen = () => {
+export const AboutScreen = ({navigation}) => {
+  const onOpenDrawer = () => {
+    navigation.openDrawer();
+  };
+
   return (
     <View>
-      <Text>About Screen</Text>
+      <Header onOpenDrawer={onOpenDrawer} title="About" />
     </View>
   );
 };

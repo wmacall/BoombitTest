@@ -13,8 +13,11 @@ import {
   AppStackRoutes,
 } from './app.routes.types';
 import {AboutScreen, DetailScreen, HomeScreen} from '../../screens';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {BottomTabs} from '../../components';
+import {
+  DrawerContentComponentProps,
+  createDrawerNavigator,
+} from '@react-navigation/drawer';
+import {BottomTabs, DrawerItems} from '../../components';
 
 const HomeStackNavigator = createStackNavigator<HomeStackRouter>();
 const BottomNavigator = createBottomTabNavigator<BottomNavigatorRouter>();
@@ -60,9 +63,14 @@ const BottomStack = () => {
   );
 };
 
+const DrawerMenu = (props: DrawerContentComponentProps) => (
+  <DrawerItems {...props} />
+);
 export const AppRoutes = () => {
   return (
-    <AppNavigator.Navigator initialRouteName={AppStackRoutes.BOTTOM_STACK}>
+    <AppNavigator.Navigator
+      drawerContent={DrawerMenu}
+      initialRouteName={AppStackRoutes.BOTTOM_STACK}>
       <AppNavigator.Screen
         options={{
           headerShown: false,

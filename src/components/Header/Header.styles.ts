@@ -3,23 +3,27 @@ import {theme} from '../../utils';
 import {COLORS} from '../../constants';
 
 export default StyleSheet.create({
+  safeArea: {
+    backgroundColor: COLORS.WHITE,
+  },
   container: {
     backgroundColor: COLORS.WHITE,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: theme.scaleWidth(20),
-    paddingVertical: theme.scaleHeight(20),
+    height: theme.scaleHeight(50),
   },
   headerItem: {
-    flex: 2,
+    flex: 1,
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   titleItem: {
     flex: 4,
   },
-  drawerItem: {
-    alignItems: 'flex-end',
-  },
+  drawerItem: {},
   title: {
     fontSize: theme.scaleFont(24),
     fontWeight: 'bold',

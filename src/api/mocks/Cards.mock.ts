@@ -83,6 +83,7 @@ export const CardsMock = [
     state: 'stolen',
     brand: 'MasterCard',
     color: '#F79E1B',
+    transactions: [],
   },
   {
     uuid: 'd1a49a69-df19-4c48-b84f-4264f94c49cc',

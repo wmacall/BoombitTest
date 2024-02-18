@@ -8,7 +8,7 @@ import styles from './HomeScreen.styles';
 import {Card, Header, Loading} from '../../../components';
 import {Card as CardInterface} from '../../../api';
 
-export const HomeScreen = () => {
+export const HomeScreen = ({navigation}) => {
   const {navigate} = useNavigation<HomeScreenNavigationProp>();
   const {isLoading, cards, onGetCreditCards} = useCreditCards();
 
@@ -23,13 +23,17 @@ export const HomeScreen = () => {
     <Card onPressCard={onPressCard} {...item} />
   );
 
+  const onOpenDrawer = () => {
+    navigation.openDrawer();
+  };
+
   useEffect(() => {
     onGetCreditCards();
   }, [onGetCreditCards]);
 
   return (
     <View style={styles.container}>
-      <Header title="Dashboard" />
+      <Header onOpenDrawer={onOpenDrawer} title="Dashboard" />
       {isLoading ? (
         <Loading />
       ) : (

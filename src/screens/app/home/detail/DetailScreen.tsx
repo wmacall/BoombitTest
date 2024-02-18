@@ -13,7 +13,7 @@ import {DetailScreenNavigationProp} from './DetailScreen.types';
 import styles from './DetailScreen.styles';
 import EmptyTransaction from '../../../../assets/img/no_transaction.png';
 
-export const DetailScreen = () => {
+export const DetailScreen = ({navigation}) => {
   const [showCardDetails, setShowCardDetails] = useState(false);
   const {params} = useRoute<DetailScreenNavigationProp>();
   const cardId = params.id ?? '';
@@ -21,13 +21,15 @@ export const DetailScreen = () => {
 
   const onToggleShowCardDetails = () => setShowCardDetails(prev => !prev);
 
+  const onOpenDrawer = () => navigation.openDrawer();
+
   useEffect(() => {
     onGetCardDetail(cardId);
   }, [onGetCardDetail, cardId]);
 
   return (
     <View style={styles.container}>
-      <Header showBackButton />
+      <Header onOpenDrawer={onOpenDrawer} showBackButton />
       {isLoading ? <Loading /> : null}
       {cardDetail && !isLoading ? (
         <ScrollView>
