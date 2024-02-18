@@ -6,3 +6,4 @@ export * from './NotFound';
 export * from './Header';
 export * from './TransactionRow';
 export * from './DrawerItems';
+export * from './Input';
