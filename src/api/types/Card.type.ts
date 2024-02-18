@@ -1,3 +1,11 @@
+export interface Transactions {
+  uuid: string;
+  amount: number;
+  date: string;
+  description: string;
+  detail: string;
+}
+
 export interface Card {
   uuid: string;
   card_number: string;
@@ -7,4 +15,5 @@ export interface Card {
   state: string;
   brand: string;
   color: string;
+  transactions: Transactions[];
 }

@@ -8,6 +8,22 @@ export const CardsMock = [
     state: 'locked',
     brand: 'MasterCard',
     color: '#F79E1B',
+    transactions: [
+      {
+        uuid: '1a49a69-df19-4c48-b84f-4264f94c49cc',
+        amount: 50,
+        date: '2023-01-15T12:30:00.000Z',
+        description: 'Purchase at Grocery Store',
+        detail: 'Groceries for the week',
+      },
+      {
+        uuid: '2a49a69-df19-4c48-b84f-4264f94c49cc',
+        amount: 75,
+        date: '2023-01-20T16:45:00.000Z',
+        description: 'Online Shopping',
+        detail: 'Clothing and accessories',
+      },
+    ],
   },
   {
     uuid: 'c118d5aa-318c-42e3-ae58-5c1cf3b4e523',
@@ -18,6 +34,15 @@ export const CardsMock = [
     state: 'expired',
     brand: 'Visa',
     color: '#1A1F71',
+    transactions: [
+      {
+        uuid: '3a49a69-df19-4c48-b84f-4264f94c49cc',
+        amount: 120,
+        date: '2023-02-01T10:15:00.000Z',
+        description: 'Dinner at Restaurant',
+        detail: 'Celebrating a special occasion',
+      },
+    ],
   },
   {
     uuid: '4e74ee89-2e8e-4d63-94cb-33c2fb4fc88d',
@@ -25,9 +50,18 @@ export const CardsMock = [
     holder_name: 'John Doe',
     expiration_date: '11/26',
     cvv: '345',
-    state: 'locked',
+    state: 'active',
     brand: 'Amex',
     color: '#016FD0',
+    transactions: [
+      {
+        uuid: '4a49a69-df19-4c48-b84f-4264f94c49cc',
+        amount: 200,
+        date: '2023-02-10T08:00:00.000Z',
+        description: 'Monthly Subscription',
+        detail: 'Streaming service subscription',
+      },
+    ],
   },
   {
     uuid: 'a99368a4-06b1-4e3f-a5c7-2659bba6e6a5',
@@ -38,6 +72,7 @@ export const CardsMock = [
     state: 'active',
     brand: 'Visa',
     color: '#1A1F71',
+    transactions: [],
   },
   {
     uuid: '12fcfd72-9423-4a46-b916-9cc1c002813b',
@@ -45,7 +80,7 @@ export const CardsMock = [
     holder_name: 'John Doe',
     expiration_date: '08/25',
     cvv: '234',
-    state: 'locked',
+    state: 'stolen',
     brand: 'MasterCard',
     color: '#F79E1B',
   },
@@ -58,5 +93,21 @@ export const CardsMock = [
     state: 'active',
     brand: 'Amex',
     color: '#016FD0',
+    transactions: [
+      {
+        uuid: '1a49a69-df19-4c48-b84f-4264f94c49cc',
+        amount: 50,
+        date: '2023-01-15T12:30:00.000Z',
+        description: 'Purchase at Grocery Store',
+        detail: 'Groceries for the week',
+      },
+      {
+        uuid: '2a49a69-df19-4c48-b84f-4264f94c49cc',
+        amount: 75,
+        date: '2023-01-20T16:45:00.000Z',
+        description: 'Online Shopping',
+        detail: 'Clothing and accessories',
+      },
+    ],
   },
 ];

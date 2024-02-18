@@ -22,6 +22,26 @@ export default StyleSheet.create({
     padding: theme.scaleHeight(20),
     overflow: 'hidden',
   },
+  containerStatus: {
+    position: 'absolute',
+    top: theme.scaleHeight(20),
+    left: theme.scaleWidth(20),
+    backgroundColor: COLORS.WHITE,
+    flexDirection: 'row',
+    padding: theme.scaleWidth(4),
+    paddingHorizontal: theme.scaleWidth(10),
+    borderRadius: theme.scaleWidth(5),
+  },
+  dotStatus: {
+    width: theme.scaleWidth(18),
+    height: theme.scaleHeight(18),
+    borderRadius: theme.scaleWidth(9),
+  },
+  statusText: {
+    fontSize: theme.scaleFont(14),
+    textTransform: 'capitalize',
+    marginLeft: theme.scaleWidth(10),
+  },
   circleOne: {
     ...BASE_CIRCLE,
     right: -10,
@@ -37,7 +57,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
-    marginTop: theme.scaleHeight(16),
+    marginTop: theme.scaleHeight(24),
   },
   containerRow: {
     flexDirection: 'row',

@@ -64,6 +64,9 @@ export const AppRoutes = () => {
   return (
     <AppNavigator.Navigator initialRouteName={AppStackRoutes.BOTTOM_STACK}>
       <AppNavigator.Screen
+        options={{
+          headerShown: false,
+        }}
         name={AppStackRoutes.BOTTOM_STACK}
         component={BottomStack}
       />

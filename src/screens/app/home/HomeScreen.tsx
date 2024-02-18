@@ -5,7 +5,7 @@ import {HomeScreenNavigationProp} from './HomeScreen.types';
 import {HomeStackRoutes} from '../../../routes';
 import {useCreditCards} from '../../../hooks';
 import styles from './HomeScreen.styles';
-import {Card, Loading} from '../../../components';
+import {Card, Header, Loading} from '../../../components';
 import {Card as CardInterface} from '../../../api';
 
 export const HomeScreen = () => {
@@ -29,6 +29,7 @@ export const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
+      <Header title="Dashboard" />
       {isLoading ? (
         <Loading />
       ) : (
