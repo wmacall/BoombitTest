@@ -1,5 +1,8 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabBarProps,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
   HomeStackRouter,
@@ -11,6 +14,7 @@ import {
 } from './app.routes.types';
 import {AboutScreen, DetailScreen, HomeScreen} from '../../screens';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {BottomTabs} from '../../components';
 
 const HomeStackNavigator = createStackNavigator<HomeStackRouter>();
 const BottomNavigator = createBottomTabNavigator<BottomNavigatorRouter>();
@@ -35,12 +39,14 @@ const HomeStack = () => {
   );
 };
 
+const BottomTabMenu = (props: BottomTabBarProps) => <BottomTabs {...props} />;
 const BottomStack = () => {
   return (
     <BottomNavigator.Navigator
       screenOptions={{
         headerShown: false,
       }}
+      tabBar={BottomTabMenu}
       initialRouteName={BottomNavigatorRoutes.HOME_STACK}>
       <BottomNavigator.Screen
         name={BottomNavigatorRoutes.HOME_STACK}

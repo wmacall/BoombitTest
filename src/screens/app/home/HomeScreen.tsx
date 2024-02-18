@@ -7,7 +7,7 @@ import {HomeStackRoutes} from '../../../routes';
 export const HomeScreen = () => {
   const {navigate} = useNavigation<HomeScreenNavigationProp>();
   return (
-    <View>
+    <View style={{flex: 1, backgroundColor: '#fff'}}>
       <Text>Home Screen</Text>
       <Button
         onPress={() =>
