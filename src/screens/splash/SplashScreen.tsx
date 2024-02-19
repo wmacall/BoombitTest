@@ -1,6 +1,6 @@
 import React from 'react';
-import {AuthRoutes} from '../../routes';
+import {AppRoutes, AuthRoutes} from '../../routes';
 
 export const SplashScreen = () => {
-  return <AuthRoutes />;
+  return <AppRoutes />;
 };

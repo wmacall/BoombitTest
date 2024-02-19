@@ -489,6 +489,8 @@ PODS:
     - React-perflogger (= 0.72.6)
   - RNBootSplash (5.4.0):
     - React-Core
+  - RNCAsyncStorage (1.22.0):
+    - React-Core
   - RNGestureHandler (2.15.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
@@ -571,6 +573,7 @@ DEPENDENCIES:
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNBootSplash (from `../node_modules/react-native-bootsplash`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -676,6 +679,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNBootSplash:
     :path: "../node_modules/react-native-bootsplash"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
@@ -740,6 +745,7 @@ SPEC CHECKSUMS:
   React-utils: fa59c9a3375fb6f4aeb66714fd3f7f76b43a9f16
   ReactCommon: dd03c17275c200496f346af93a7b94c53f3093a4
   RNBootSplash: 009c55e0258f3e56be9c5f7a578bf2baf140c4bc
+  RNCAsyncStorage: c43e6d71e13bb4748503797784839e0fbbf89d56
   RNGestureHandler: 7909c50383a18f0cb10ce1db7262b9a6da504c03
   RNReanimated: 9dfe7a19dd7c3e123b23db42e74bf051725f2ea3
   RNScreens: 3c5b9f4a9dcde752466854b6109b79c0e205dad3

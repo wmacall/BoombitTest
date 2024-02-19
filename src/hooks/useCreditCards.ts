@@ -1,15 +1,18 @@
 import {useState} from 'react';
 import {Card, CardsMock} from '../api';
+import {useDispatch, useSelector} from 'react-redux';
+import {cardSelector, onSetCards} from '../store';
 
 export const useCreditCards = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [cards, setCards] = useState<Card[]>([]);
   const [cardDetail, setCardDetail] = useState<Card | null>(null);
+  const {cards, isLoadingRequest} = useSelector(cardSelector);
+  const dispatch = useDispatch();
 
   const onGetCreditCards = async () => {
     try {
       setTimeout(() => {
-        setCards(CardsMock);
+        dispatch(onSetCards({cards: CardsMock}));
         setIsLoading(false);
       }, 2000);
     } catch (error) {
@@ -20,7 +23,7 @@ export const useCreditCards = () => {
   const onGetCardDetail = (id: string) => {
     try {
       setTimeout(() => {
-        const foundedCard = CardsMock.find(card => card.uuid === id);
+        const foundedCard = cards.find(card => card.uuid === id);
         setCardDetail(foundedCard || null);
         setIsLoading(false);
       }, 2000);
@@ -31,9 +34,10 @@ export const useCreditCards = () => {
 
   return {
     isLoading,
-    cards,
     onGetCreditCards,
     onGetCardDetail,
     cardDetail,
+    cards,
+    isLoadingRequest,
   };
 };

@@ -27,9 +27,7 @@ export const LoginScreen = () => {
     },
   });
 
-  const onLogin: SubmitHandler<LoginScreenValues> = values => {
-    console.log('???', values);
-  };
+  const onLogin: SubmitHandler<LoginScreenValues> = values => {};
 
   return (
     <KeyboardAvoidingView

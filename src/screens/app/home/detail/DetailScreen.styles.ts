@@ -7,6 +7,9 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.WHITE,
   },
+  contentContainerStyle: {
+    paddingBottom: theme.scaleHeight(100),
+  },
   containerDetail: {
     paddingHorizontal: theme.scaleWidth(20),
     paddingTop: theme.scaleHeight(20),
@@ -16,14 +19,14 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  buttonStolen: {
+  buttonAction: {
     flex: 1,
     height: theme.scaleHeight(50),
-    borderColor: COLORS.RED,
     borderWidth: 1,
     borderRadius: theme.scaleWidth(5),
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: COLORS.GRAY_200,
   },
   primaryButton: {
     flex: 1,
@@ -31,8 +34,8 @@ export default StyleSheet.create({
     borderRadius: theme.scaleWidth(5),
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: theme.scaleWidth(10),
     backgroundColor: COLORS.BLUE,
+    marginTop: theme.scaleHeight(10),
   },
   primaryText: {
     color: COLORS.WHITE,
@@ -40,9 +43,10 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
   buttonText: {
-    color: COLORS.RED,
-    fontSize: theme.scaleFont(16),
+    color: COLORS.BLACK,
+    fontSize: theme.scaleFont(14),
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   transactionTitle: {
     fontSize: theme.scaleFont(24),

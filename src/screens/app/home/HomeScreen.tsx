@@ -1,16 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useCallback, useEffect} from 'react';
 import {FlatList, ListRenderItem, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {HomeScreenNavigationProp} from './HomeScreen.types';
 import {HomeStackRoutes} from '../../../routes';
 import {useCreditCards} from '../../../hooks';
-import styles from './HomeScreen.styles';
 import {Card, Header, Loading} from '../../../components';
 import {Card as CardInterface} from '../../../api';
+import styles from './HomeScreen.styles';
 
 export const HomeScreen = ({navigation}) => {
-  const {navigate} = useNavigation<HomeScreenNavigationProp>();
-  const {isLoading, cards, onGetCreditCards} = useCreditCards();
+  const {isLoading, onGetCreditCards, cards} = useCreditCards();
+
+  const {navigate} = navigation;
 
   const onPressCard = useCallback(
     (uuid: string) => {
@@ -29,7 +29,7 @@ export const HomeScreen = ({navigation}) => {
 
   useEffect(() => {
     onGetCreditCards();
-  }, [onGetCreditCards]);
+  }, []);
 
   return (
     <View style={styles.container}>

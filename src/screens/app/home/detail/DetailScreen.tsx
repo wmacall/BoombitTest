@@ -12,16 +12,26 @@ import {useCreditCards} from '../../../../hooks';
 import {DetailScreenNavigationProp} from './DetailScreen.types';
 import styles from './DetailScreen.styles';
 import EmptyTransaction from '../../../../assets/img/no_transaction.png';
+import {useDispatch} from 'react-redux';
+import {onChangeCardStatus} from '../../../../store';
+import {CARD_OPTIONS} from '../../../../constants';
+import {theme} from '../../../../utils';
 
 export const DetailScreen = ({navigation}) => {
   const [showCardDetails, setShowCardDetails] = useState(false);
   const {params} = useRoute<DetailScreenNavigationProp>();
   const cardId = params.id ?? '';
-  const {isLoading, cardDetail, onGetCardDetail} = useCreditCards();
+  const {isLoading, cardDetail, onGetCardDetail, isLoadingRequest} =
+    useCreditCards();
+  const dispatch = useDispatch();
 
   const onToggleShowCardDetails = () => setShowCardDetails(prev => !prev);
 
   const onOpenDrawer = () => navigation.openDrawer();
+
+  const onPressCardAction = (status: string) => {
+    dispatch(onChangeCardStatus({id: cardId, status}));
+  };
 
   useEffect(() => {
     onGetCardDetail(cardId);
@@ -32,21 +42,29 @@ export const DetailScreen = ({navigation}) => {
       <Header onOpenDrawer={onOpenDrawer} showBackButton />
       {isLoading ? <Loading /> : null}
       {cardDetail && !isLoading ? (
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.contentContainerStyle}>
           <View style={[styles.container, styles.containerDetail]}>
             <Card {...cardDetail} canShowDetail={showCardDetails} />
             <View style={styles.containerButtons}>
-              <TouchableOpacity style={styles.buttonStolen}>
-                <Text style={styles.buttonText}>Report as Stolen</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={onToggleShowCardDetails}
-                style={styles.primaryButton}>
-                <Text style={styles.primaryText}>
-                  {showCardDetails ? 'Hide Details' : 'Show Details'}
-                </Text>
-              </TouchableOpacity>
+              {CARD_OPTIONS[cardDetail.state].map((option, index) => (
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => onPressCardAction(option.status)}
+                  style={[
+                    styles.buttonAction,
+                    {marginLeft: index % 2 !== 0 ? theme.scaleWidth(10) : 0},
+                  ]}>
+                  <Text style={styles.buttonText}>{option.title}</Text>
+                </TouchableOpacity>
+              ))}
             </View>
+            <TouchableOpacity
+              onPress={onToggleShowCardDetails}
+              style={styles.primaryButton}>
+              <Text style={styles.primaryText}>
+                {showCardDetails ? 'Hide Details' : 'Show Details'}
+              </Text>
+            </TouchableOpacity>
             <Text style={styles.transactionTitle}>Transaction History</Text>
             {cardDetail?.transactions.map(transaction => (
               <TransactionRow {...transaction} key={transaction.uuid} />

@@ -74,7 +74,6 @@ export const Card = ({
         </View>
         <View style={styles.containerBrand}>
           <Icon name={IconCard[brand]} />
-          <Text style={styles.textMD}>{brand}</Text>
         </View>
       </View>
     </TouchableOpacity>
