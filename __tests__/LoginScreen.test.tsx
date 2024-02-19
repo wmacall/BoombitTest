@@ -1,17 +1,18 @@
 import React from 'react';
-import {render, fireEvent, waitFor, act} from '@testing-library/react-native';
+import {fireEvent, waitFor, act} from '@testing-library/react-native';
 import {LoginScreen} from '../src/screens/auth/login/LoginScreen';
+import {customRender} from '../src/utils/testWrapper';
 
 describe('Login Screen tests ', () => {
   it('renders correctly', () => {
-    const {getByPlaceholderText} = render(<LoginScreen />);
+    const {getByPlaceholderText} = customRender(<LoginScreen />);
 
     expect(getByPlaceholderText('Email Address')).toBeTruthy();
     expect(getByPlaceholderText('Enter Password')).toBeTruthy();
   });
 
   it('should call the sign in button when the fields are correct', async () => {
-    const {getByPlaceholderText, getByTestId} = render(<LoginScreen />);
+    const {getByPlaceholderText, getByTestId} = customRender(<LoginScreen />);
     const emailInput = getByPlaceholderText('Email Address');
     const passwordInput = getByPlaceholderText('Enter Password');
     const signInButton = getByTestId('ls_button');
@@ -21,7 +22,7 @@ describe('Login Screen tests ', () => {
   });
 
   it('should show the errors when fields are empty', async () => {
-    const {getByTestId, getByText} = render(<LoginScreen />);
+    const {getByTestId, getByText} = customRender(<LoginScreen />);
     const signInButton = getByTestId('ls_button');
 
     await act(async () => {
