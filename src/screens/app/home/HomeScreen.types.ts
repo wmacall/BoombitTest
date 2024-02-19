@@ -1,7 +1,6 @@
-import {StackNavigationProp} from '@react-navigation/stack';
 import {HomeStackRouter, HomeStackRoutes} from '../../../routes';
+import {DrawerNavigationProp} from '@react-navigation/drawer';
 
-export type HomeScreenNavigationProp = StackNavigationProp<
-  HomeStackRouter,
-  HomeStackRoutes.HOME
->;
+export interface HomeScreenNavigationProp {
+  navigation: DrawerNavigationProp<HomeStackRouter, HomeStackRoutes.HOME>;
+}

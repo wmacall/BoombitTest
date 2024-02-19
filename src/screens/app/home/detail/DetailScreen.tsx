@@ -9,7 +9,10 @@ import {
   TransactionRow,
 } from '../../../../components';
 import {useCreditCards} from '../../../../hooks';
-import {DetailScreenNavigationProp} from './DetailScreen.types';
+import {
+  DetailScreenNavigationProp,
+  DetailScreenRouteProp,
+} from './DetailScreen.types';
 import styles from './DetailScreen.styles';
 import EmptyTransaction from '../../../../assets/img/no_transaction.png';
 import {useDispatch} from 'react-redux';
@@ -17,9 +20,9 @@ import {onChangeCardStatus} from '../../../../store';
 import {CARD_OPTIONS} from '../../../../constants';
 import {theme} from '../../../../utils';
 
-export const DetailScreen = ({navigation}) => {
+export const DetailScreen = ({navigation}: DetailScreenNavigationProp) => {
   const [showCardDetails, setShowCardDetails] = useState(false);
-  const {params} = useRoute<DetailScreenNavigationProp>();
+  const {params} = useRoute<DetailScreenRouteProp>();
   const cardId = params.id ?? '';
   const {isLoading, cardDetail, onGetCardDetail} = useCreditCards();
   const dispatch = useDispatch();

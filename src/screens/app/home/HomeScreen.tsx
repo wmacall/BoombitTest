@@ -6,8 +6,9 @@ import {useCreditCards} from '../../../hooks';
 import {Card, Header, Loading} from '../../../components';
 import {Card as CardInterface} from '../../../api';
 import styles from './HomeScreen.styles';
+import {HomeScreenNavigationProp} from './HomeScreen.types';
 
-export const HomeScreen = ({navigation}) => {
+export const HomeScreen = ({navigation}: HomeScreenNavigationProp) => {
   const {isLoading, onGetCreditCards, cards} = useCreditCards();
 
   const {navigate} = navigation;
