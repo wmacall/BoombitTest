@@ -9,13 +9,26 @@ import {
 import {DrawerContentComponentProps} from '@react-navigation/drawer';
 import {COLORS, drawerOptions} from '../../constants';
 import {theme} from '../../utils';
+import {useDispatch} from 'react-redux';
+import {onClearUser} from '../../store/slices/user';
+import {onClearCard} from '../../store';
 
-export const DrawerItems = ({}: DrawerContentComponentProps) => {
+export const DrawerItems = ({navigation}: DrawerContentComponentProps) => {
+  const dispatch = useDispatch();
+
+  const onPressLogOut = () => {
+    dispatch(onClearUser());
+    dispatch(onClearCard());
+    navigation.closeDrawer();
+  };
   return (
     <View>
       <SafeAreaView />
       {drawerOptions.map((item, index) => (
-        <TouchableOpacity style={styles.container} key={index}>
+        <TouchableOpacity
+          onPress={onPressLogOut}
+          style={styles.container}
+          key={index}>
           <Text>{item}</Text>
         </TouchableOpacity>
       ))}

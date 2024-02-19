@@ -11,6 +11,8 @@ import {useYupValidationResolver} from '../../../hooks';
 import {loginSchema} from '../../../utils';
 import styles from './LoginScreen.styles';
 import {Input} from '../../../components';
+import {useDispatch} from 'react-redux';
+import {onSetUser} from '../../../store/slices/user';
 
 interface LoginScreenValues {
   email: string;
@@ -18,6 +20,7 @@ interface LoginScreenValues {
 }
 
 export const LoginScreen = () => {
+  const dispatch = useDispatch();
   const resolver = useYupValidationResolver(loginSchema);
   const {control, handleSubmit} = useForm<LoginScreenValues>({
     resolver,
@@ -27,7 +30,13 @@ export const LoginScreen = () => {
     },
   });
 
-  const onLogin: SubmitHandler<LoginScreenValues> = values => {};
+  const onLogin: SubmitHandler<LoginScreenValues> = values => {
+    dispatch(
+      onSetUser({
+        email: values.email,
+      }),
+    );
+  };
 
   return (
     <KeyboardAvoidingView

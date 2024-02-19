@@ -21,8 +21,7 @@ export const DetailScreen = ({navigation}) => {
   const [showCardDetails, setShowCardDetails] = useState(false);
   const {params} = useRoute<DetailScreenNavigationProp>();
   const cardId = params.id ?? '';
-  const {isLoading, cardDetail, onGetCardDetail, isLoadingRequest} =
-    useCreditCards();
+  const {isLoading, cardDetail, onGetCardDetail} = useCreditCards();
   const dispatch = useDispatch();
 
   const onToggleShowCardDetails = () => setShowCardDetails(prev => !prev);

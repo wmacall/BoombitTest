@@ -3,9 +3,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persistReducer, persistStore} from 'redux-persist';
 import {configureStore} from '@reduxjs/toolkit';
 import cardSlice from './slices/card/card.slice';
+import userSlice from './slices/user/user.slice';
 
 const rootReducer = combineReducers({
   card: cardSlice,
+  user: userSlice,
 });
 
 const persistConfig = {
