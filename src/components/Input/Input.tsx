@@ -20,7 +20,6 @@ export const Input = ({control, name, ...rest}: InputProps) => {
     name,
   });
   const {errors} = formState;
-  const isInvalid = errors[field.name]?.message;
   const errorMessage = errors[field.name]?.message;
   return (
     <View style={styles.containerInput}>
@@ -28,6 +27,8 @@ export const Input = ({control, name, ...rest}: InputProps) => {
         style={styles.input}
         value={field.value}
         onChangeText={field.onChange}
+        autoComplete="off"
+        autoCapitalize="none"
         {...rest}
       />
       <Text style={styles.errorMessage}>{errorMessage}</Text>

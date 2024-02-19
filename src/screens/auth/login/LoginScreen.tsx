@@ -44,8 +44,18 @@ export const LoginScreen = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <View style={styles.containerLogin}>
         <Text style={styles.heading}>Sign In</Text>
-        <Input placeholder="Email Address" name="email" control={control} />
-        <Input placeholder="Enter Password" name="password" control={control} />
+        <Input
+          placeholder="Email Address"
+          name="email"
+          keyboardType="email-address"
+          control={control}
+        />
+        <Input
+          placeholder="Enter Password"
+          secureTextEntry
+          name="password"
+          control={control}
+        />
         <TouchableOpacity
           testID="ls_button"
           onPress={handleSubmit(onLogin)}
